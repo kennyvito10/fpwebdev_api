@@ -18,6 +18,9 @@ class CreateBilldetailsTable extends Migration
             $table->integer('bill_id');
             $table->integer('product_id');
             $table->integer('qty');
+            $table->foreign('bill_id')
+                    ->references('billid')->on('bill')
+                    ->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -21,6 +21,9 @@ class CreateUsersTable extends Migration
             $table->string('phoneNumber');
             $table->integer('addressID');
             $table->timestamps();
+            $table->foreign('addressID')
+                    ->references('addressid')->on('address')
+                    ->onDelete('cascade');
         });
     }
 

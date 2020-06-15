@@ -20,6 +20,9 @@ class CreateProductsTable extends Migration
             $table->string('imgUrl');
             $table->integer('brand_id');
             $table->string('description');
+            $table->foreign('brand_id')
+                    ->references('brandid')->on('brand')
+                    ->onDelete('cascade');
 
             $table->timestamps();
         });

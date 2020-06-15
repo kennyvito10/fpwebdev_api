@@ -16,8 +16,10 @@ class CreateBillsTable extends Migration
         Schema::create('bills', function (Blueprint $table) {
             $table->increments('billid');
             $table->integer('user_id');
-            $table->string('paymentUrl');
             $table->integer('status');
+            $table->foreign('user_id')
+                    ->references('id')->on('user')
+                    ->onDelete('cascade');
             $table->timestamps();
         });
     }
